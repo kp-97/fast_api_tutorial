@@ -5,6 +5,7 @@ RUN groupadd -g 10001 nonroot && \
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
+    ssh \
     tini \
     dnsutils \
     && rm -rf /var/lib/apt/lists/*
