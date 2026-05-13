@@ -11,6 +11,14 @@
         }
     },
     "forwardPorts": [8000],
-    "postStartCommand": "uvicorn main:app --host 0.0.0.0 --port 8000 --reload",
+    "portsAttributes": {
+        "8000": {
+            "label": "FastAPI Server",
+            "onAutoForward": "notify",
+            "elevateIfNeeded": true,
+            "visibility": "public" 
+        }
+    },
+    "postStartCommand": "uvicorn main:app --host 0.0.0.0 --port 8000",
     "remoteUser": "nonroot"
 }

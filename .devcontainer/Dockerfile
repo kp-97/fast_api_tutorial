@@ -6,7 +6,7 @@ RUN groupadd -g 10001 nonroot && \
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl git curl tini \
+    curl git curl tini ssh\
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
@@ -33,4 +33,4 @@ RUN pip install --user --no-cache-dir .
 ENTRYPOINT ["/usr/bin/tini", "--"]
 
 # Run uvicorn
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
