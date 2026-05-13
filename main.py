@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -11,7 +12,7 @@ items = []
 
 @app.get("/")
 def root():
-    return {"Hello": "World"}
+    return RedirectResponse(url="/docs")
 
 @app.post("/items")
 def create_item(item: Item):
